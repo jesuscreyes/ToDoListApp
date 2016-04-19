@@ -1,3 +1,6 @@
+// The Typesafe repository
+resolvers += "Typesafe repository" at "https://dl.bintray.com/typesafe/maven-releases/"
+
 // The Play plugin
 addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.5.2")
 
@@ -18,4 +21,7 @@ addSbtPlugin("com.typesafe.sbt" % "sbt-play-enhancer" % "1.1.0")
 
 // Play Ebean support, to enable, uncomment this line, and enable in your build.sbt using
 // enablePlugins(PlayEbean).
-// addSbtPlugin("com.typesafe.sbt" % "sbt-play-ebean" % "1.0.0")
+addSbtPlugin("com.typesafe.sbt" % "sbt-play-ebean" % "3.0.0")
+
+// Eclipse Plugin
+addSbtPlugin("com.typesafe.sbteclipse" % "sbteclipse-plugin" % "4.0.0")
