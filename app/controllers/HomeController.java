@@ -1,8 +1,17 @@
 package controllers;
 
+import models.Person;
+import play.*;
+import play.data.Form;
 import play.mvc.*;
 
+import com.avaje.ebean.*;
+
 import views.html.*;
+
+import java.util.List;
+
+import static play.libs.Json.toJson;
 
 /**
  * This controller contains an action to handle HTTP requests
@@ -18,6 +27,17 @@ public class HomeController extends Controller {
      */
     public Result index() {
         return ok(index.render("Your new application is ready."));
+    }
+
+    public Result addPerson(){
+      Person person = Form.form(Person.class).bindFromRequest().get();
+      person.save();
+      return redirect(routes.HomeController.index());
+    }
+
+    public Result getPersons(){
+      List<Person> persons = new Model.Finder(String.class, Person.class).all();
+      return ok(toJson(persons));
     }
 
 }
