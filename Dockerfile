@@ -1,2 +1,2 @@
-FROM jrcreyes93/todolistapp:latest
+FROM ubuntu
 CMD activator run
